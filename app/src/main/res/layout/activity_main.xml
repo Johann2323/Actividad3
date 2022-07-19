@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/img_sitio"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/usuario" />
+
+        <EditText
+            android:id="@+id/txt_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_nombre_tit"
+            android:layout_marginStart="16dp"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+            android:hint="Nombre" />
+
+        <TextView
+            android:id="@+id/txt_nombre_tit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_sitio"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-black"
+
+            android:text="Nombre:"
+            android:textColor="@color/azul"
+            android:textSize="26sp" />
+
+        <EditText
+            android:id="@+id/txt_clave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/txt_clave_tit"
+            android:layout_marginStart="16dp"
+            android:inputType="textPassword"
+            android:hint="Digite su clave (min 5 carcateres)" />
+
+        <TextView
+            android:id="@+id/txt_clave_tit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_nombre"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-black"
+
+            android:text="Clave:"
+            android:textColor="@color/azul"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/txt_repclave_tit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_clave"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-black"
+
+            android:text="Repetir clave:"
+            android:textColor="@color/azul"
+            android:textSize="26sp" />
+
+        <EditText
+            android:id="@+id/txt_repclave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/txt_repclave_tit"
+            android:layout_marginStart="16dp"
+            android:hint="Debe ser la misma clave"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/txt_correo_tit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_repclave"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-black"
+
+            android:text="Email:"
+            android:textColor="@color/azul"
+            android:textSize="26sp" />
+
+        <EditText
+            android:id="@+id/txt_correo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/txt_correo_tit"
+            android:layout_marginStart="16dp"
+            android:hint="Ingrese su email"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:id="@+id/txt_repcorreo_tit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_correo"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-black"
+
+            android:text="Repetir email:"
+            android:textColor="@color/azul"
+            android:textSize="26sp" />
+
+        <EditText
+            android:id="@+id/txt_repcorreo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/txt_repcorreo_tit"
+            android:layout_marginStart="16dp"
+            android:hint="Debe ser el mismo email"
+            android:inputType="textEmailAddress" />
+        <TextView
+            android:id="@+id/txt_rol_tit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_repcorreo"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-black"
+
+            android:text="Rol:"
+            android:textColor="@color/azul"
+            android:textSize="26sp" />
+
+        <EditText
+            android:id="@+id/txt_rol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/txt_rol_tit"
+            android:layout_marginStart="16dp"
+            android:hint="Ingrese su rol (Administrador o Invitado)"
+             />
+
+
+
+        <Button
+            android:id="@+id/btn_guardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Ingresar" />
+
+
+
+
+    </RelativeLayout>
+</layout>
