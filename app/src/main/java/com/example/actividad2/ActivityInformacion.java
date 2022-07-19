@@ -24,17 +24,13 @@ public class ActivityInformacion extends AppCompatActivity {
         Usuario usuario = extras.getParcelable(USUARIO_KEY);
         binding.setUsuario(usuario);
 
-        String nom = extras.getString("usuarios");
-
-        String contra = extras.getString("contra");
-        String correo = extras.getString("correos");
-        String rols = extras.getString("roles");
 
 
-        binding.txtUsuario.setText("Bienvenido: "+nom);
-        binding.txtGetcorreo.setText("Email: "+correo);
-        binding.txtRols.setText("Usted es: "+rols);
-        binding.ratingBar.setRating(usuario.NivelSeguridad(contra));
+
+        binding.txtUsuario.setText("Bienvenido: "+usuario.getUsuario());
+        binding.txtGetcorreo.setText("Email: "+usuario.getEmail());
+        binding.txtRols.setText("Usted es: "+usuario.getRol());
+        binding.ratingBar.setRating(usuario.NivelSeguridad(usuario.getClave()));
 
 
 

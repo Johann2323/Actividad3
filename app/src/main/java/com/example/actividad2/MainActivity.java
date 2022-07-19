@@ -91,19 +91,8 @@ public class MainActivity extends AppCompatActivity {
     }
     private void abrirActivityDetalle(String rols, String us, String cont,String corr){
         Intent intent = new Intent(this,ActivityInformacion.class);
-
         Usuario usuario1 = new Usuario(rols,us,cont,corr);
-
-
-
         intent.putExtra(ActivityInformacion.USUARIO_KEY,usuario1);
-        intent.putExtra("roles",rols);
-        intent.putExtra("usuarios",us);
-        intent.putExtra("contra",cont);
-        intent.putExtra("correos",corr);
-
-
-        System.out.println(cont);
         startActivity(intent);
 
     }

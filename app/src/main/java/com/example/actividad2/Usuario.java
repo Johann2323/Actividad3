@@ -110,17 +110,10 @@ public class Usuario implements Parcelable{
     public boolean ValidarClave(String clave, String repclave){
         if (clave.equals(repclave)){
             if (clave.length()>4){
-
-
                 return true;
-
-
-
             }else{
                 return false;
             }
-
-
         }else{
             return false;
         }
@@ -141,4 +134,5 @@ public class Usuario implements Parcelable{
             return false;
         }
     }
+
 }
