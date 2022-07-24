@@ -1,10 +1,16 @@
 package com.example.actividad2;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,11 +21,14 @@ import com.example.actividad2.databinding.ActivityMainBinding;
 
 
 public class MainActivity extends AppCompatActivity {
+    ActivityMainBinding binding;
+    Bitmap bitmap;
+    ActivityResultLauncher<Intent> Luncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Usuario usuario = new Usuario();
         EditText txt_nombre = binding.txtNombre;
@@ -88,11 +97,35 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        MCAMARA();
+        binding.imgSitio.setOnClickListener(v->{
+            abrirCamara();
+        });
+    }
+
+    private void abrirCamara() {
+        Intent camaraintent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        Luncher.launch(camaraintent);
+    }
+
+    public void MCAMARA(){
+        Luncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                if(result.getResultCode()==RESULT_OK){
+                    if(result.getData()!=null){
+                        bitmap = result.getData().getExtras().getParcelable("data");
+                        binding.imgSitio.setImageBitmap(bitmap);
+                    }
+                }
+            }
+        });
     }
     private void abrirActivityDetalle(String rols, String us, String cont,String corr){
         Intent intent = new Intent(this,ActivityInformacion.class);
         Usuario usuario1 = new Usuario(rols,us,cont,corr);
         intent.putExtra(ActivityInformacion.USUARIO_KEY,usuario1);
+        intent.putExtra(ActivityInformacion.BITMAP_KEY,bitmap);
         startActivity(intent);
 
     }

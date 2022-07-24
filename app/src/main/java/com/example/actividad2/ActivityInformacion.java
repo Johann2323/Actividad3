@@ -3,6 +3,7 @@ package com.example.actividad2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 
 public class ActivityInformacion extends AppCompatActivity {
     public static final String USUARIO_KEY = "usuario";
+    public static final String BITMAP_KEY ="bitmap";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,9 @@ public class ActivityInformacion extends AppCompatActivity {
 
         Usuario usuario = extras.getParcelable(USUARIO_KEY);
         binding.setUsuario(usuario);
+        Bitmap bitmap = extras.getParcelable(BITMAP_KEY);
+
+
 
 
 
@@ -54,6 +59,10 @@ public class ActivityInformacion extends AppCompatActivity {
         }else if(binding.ratingBar.getRating()==1){
 
             binding.txtDescrip.setText("La clave de seguridad se considera insegura");
+        }
+
+        if(bitmap!=null){
+            binding.imgInformacion.setImageBitmap(bitmap);
         }
     }
 }
